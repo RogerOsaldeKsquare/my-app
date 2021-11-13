@@ -1,14 +1,11 @@
 import React, {useState,useEffect} from 'react';
 import Navbar from './components/Navbar';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {Switch} from 'react-router'
+import {BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import {Container, Dimmer, Loader } from 'semantic-ui-react';
 import Home from './components/Home';
 import People from './components/People';
 import Planets from './components/Planets';
 import Films from './components/Films';
-
-import './App.css';
 
 
 function App() {
@@ -56,20 +53,16 @@ function App() {
                   <Loader inverted>Loading</Loader>
               </Dimmer>
             ) : (
-              <Switch>
-              <Route exact path='/'>
-                <Home />
+              <Routes>
+              <Route element={<Home />} exact path='/home'>
               </Route>
-              <Route exact path='/peoople'>
-              <People data={people}/>
+              <Route element={<People data={people} />} exact path='/people'>
               </Route>
-              <Route exact path='/planets'>
-                <Planets data={planets}/>
+              <Route element={<Planets data={planets} />} exact path='/planets'>
               </Route>
-              <Route exact path='/films'>
-                <Planets data={films}/>
+              <Route element={<Films data={films} />} exact path='/films'>
               </Route>
-              </Switch>
+              </Routes>
             ) }
             
           </Container>

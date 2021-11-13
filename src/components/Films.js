@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Grid } from 'semantic-ui-react';
 
+
 export default function Films({data}){
     return (
         <>
@@ -11,14 +12,23 @@ export default function Films({data}){
                         <Grid.Column key={i}>
                         <Card>
                             <Card.Content>
-                                <Card.Header>{films.name}</Card.Header>
+                                
+                                <Card.Header>{films.title}</Card.Header>
                                 <Card.Description>
-                                    <strong>Title</strong>
-                                    <p>{films.title}</p>
+                                    <div className="card-image-container">
+                                        <img
+                                            className="medium"
+                                            src={`./assets/images/poster${i}.png`}
+                                            alt={films.title}
+                                        />
+                                    </div>
                                     <strong>Director</strong>
                                     <p>{films.director}</p>
                                     <strong>Release Date</strong>
                                     <p>{films.release_date}</p>
+                                    <strong>Film Crawl</strong>
+                                    <p>{films.opening_crawl}</p>
+                                    <button className="primary-btn">Opening Crawl</button>
                                 </Card.Description>
                             </Card.Content>
                         </Card>
