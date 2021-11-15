@@ -54,7 +54,7 @@ function App() {
               </Dimmer>
             ) : (
               <Routes>
-              <Route element={<Home />} exact path='/home'>
+              <Route element={<Home />} exact path='/'>
               </Route>
               <Route element={<People data={people} />} exact path='/people'>
               </Route>

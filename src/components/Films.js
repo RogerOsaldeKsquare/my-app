@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Grid } from 'semantic-ui-react';
-
+import images from "../assets/images"
+import ModalF from './Modal'
 
 export default function Films({data}){
     return (
@@ -18,7 +19,8 @@ export default function Films({data}){
                                     <div className="card-image-container">
                                         <img
                                             className="medium"
-                                            src={`./assets/images/poster${i}.png`}
+                                            style={{ width: 260, height: 300 }}
+                                            src={images[i]}
                                             alt={films.title}
                                         />
                                     </div>
@@ -26,10 +28,8 @@ export default function Films({data}){
                                     <p>{films.director}</p>
                                     <strong>Release Date</strong>
                                     <p>{films.release_date}</p>
-                                    <strong>Film Crawl</strong>
-                                    <p>{films.opening_crawl}</p>
-                                    <button className="primary-btn">Opening Crawl</button>
                                 </Card.Description>
+                                <ModalF films={films}/>
                             </Card.Content>
                         </Card>
                         </Grid.Column>
