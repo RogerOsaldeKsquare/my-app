@@ -19,7 +19,7 @@ function ModalF({films}){
   const [modalIsOpen, setModalIsOpen] = useState(false);
   return(
     <div className="Modal">
-      <button onClick={()=> setModalIsOpen(true)}>Opening Crawl</button>
+      <button onClick={()=> setModalIsOpen(true)}>More Info</button>
       <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false) } style={customStyles}>
         <h1>{films.title}</h1>
         <h2>Director</h2>

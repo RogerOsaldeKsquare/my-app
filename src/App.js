@@ -11,8 +11,9 @@ import Films from './components/Films';
 function App() {
   const [people, setPeople] = useState([]);
   const [planets, setPlanets] = useState([]);
-  const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState([true]);
+
+
 
   useEffect(()=>{
     async function fetchPeople(){
@@ -29,22 +30,12 @@ function App() {
       setLoading(false);
     }
 
-    async function fetchFilms(){
-      let res = await fetch('https://swapi.dev/api/films/?format=json');
-      let data = await res.json();
-      setFilms(data.results);
-      setLoading(false);
-    }
-
       fetchPeople();
       fetchPlanets();
-      fetchFilms();
-
 
   }, [])
 
   return (
-    <>
       <Router>
         <Navbar />
           <Container>
@@ -56,18 +47,16 @@ function App() {
               <Routes>
               <Route element={<Home />} exact path='/'>
               </Route>
-              <Route element={<People data={people} />} exact path='/people'>
+              <Route element={<People data={people}/>} exact path='/people'>
               </Route>
               <Route element={<Planets data={planets} />} exact path='/planets'>
               </Route>
-              <Route element={<Films data={films} />} exact path='/films'>
+              <Route element={<Films data_planets={planets} />} exact path='/films'>
               </Route>
               </Routes>
             ) }
-            
           </Container>
       </Router>
-    </>
   );
 }
 

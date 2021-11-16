@@ -7,9 +7,9 @@ export default function Home(){
     return (
         <div className="Logo">
           <header className="Logo-header">
-            <h1>
-              This is my first React App, so go easy on me please.
-            </h1>
+          <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+            <h1> This App is a reference of the Amazing Universe of </h1>
+          </div>
           </header>
           <div className="image-container">
           <img  style={{ width: 700, height: 650 }} src={logo[0]}  alt={logo}/>
